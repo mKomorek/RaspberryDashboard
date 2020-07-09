@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/">
+        <file>QML/main.qml</file>
+        <file>QML/Constants.qml</file>
+        <file>Images/LEM_logo.png</file>
+        <file>QML/ScreenManager.qml</file>
+    </qresource>
+</RCC>

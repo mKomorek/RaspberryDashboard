@@ -1,0 +1,9 @@
+import QtQuick 2.0
+import View 1.0
+
+Rectangle {
+    id: topRectangle
+    width: parent.width
+    height: parent.height
+    color: Constants.colorBG
+}
