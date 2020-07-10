@@ -1,6 +1,5 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.3
-import View 1.0
 
 ApplicationWindow {
     id: mainWindow

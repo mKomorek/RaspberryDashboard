@@ -1,5 +1,4 @@
 import QtQuick 2.12
-import View 1.0
 
 Rectangle {
     id: topRectangle

@@ -1,6 +1,5 @@
 import QtQuick 2.0
 import QtGraphicalEffects 1.0
-import View 1.0
 
 Rectangle {
     id: topRectangle
