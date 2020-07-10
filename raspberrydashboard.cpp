@@ -7,7 +7,6 @@
 
 RaspberryDashboard::RaspberryDashboard(int &argc, char **argv) : QGuiApplication(argc, argv)
 {
-    QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
     QQuickStyle::setStyle("Material");
     QQuickWindow::setTextRenderType(QQuickWindow::TextRenderType::QtTextRendering);
 

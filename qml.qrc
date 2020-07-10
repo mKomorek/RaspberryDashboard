@@ -4,5 +4,17 @@
         <file>QML/Constants.qml</file>
         <file>Images/LEM_logo.png</file>
         <file>QML/ScreenManager.qml</file>
+        <file>QML/MenuBarButton.qml</file>
+        <file>Images/info.svg</file>
+        <file>QML/MenuBar.qml</file>
+        <file>Images/settings.svg</file>
+        <file>Images/home.svg</file>
+        <file>Images/battery.svg</file>
+        <file>QML/HomeScreen.qml</file>
+        <file>QML/BatteryScreen.qml</file>
+        <file>QML/AboutAppScreen.qml</file>
+        <file>QML/SettingsScreen.qml</file>
+        <file>Images/unlock.svg</file>
+        <file>Images/lock.svg</file>
     </qresource>
 </RCC>

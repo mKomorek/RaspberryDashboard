@@ -6,8 +6,9 @@ QtObject {
     readonly property int height: 600
 
     // colors:
-    readonly property color colorBG: "#212121"
-
+    readonly property color colorTransparent: "#00000000"
+    readonly property color colorBackground: "#D3D3D3"
+    readonly property color colorMenuButtonGray: "#808080"
 
 
     // old app colors:
