@@ -1,7 +1,6 @@
 <RCC>
     <qresource prefix="/">
         <file>QML/main.qml</file>
-        <file>QML/Constants.qml</file>
         <file>Images/LEM_logo.png</file>
         <file>QML/ScreenManager.qml</file>
         <file>QML/MenuBarButton.qml</file>
@@ -21,5 +20,10 @@
         <file>Images/temperature.svg</file>
         <file>Images/batteryAlert.svg</file>
         <file>QML/ColumnElementSeparator.qml</file>
+        <file>QML/GlobalValues.qml</file>
+        <file>QML/UISettings.qml</file>
+        <file>QML/HeadingText.qml</file>
+        <file>Images/speed.svg</file>
+        <file>QML/RecordCard.qml</file>
     </qresource>
 </RCC>

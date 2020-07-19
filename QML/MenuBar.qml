@@ -4,17 +4,17 @@ Rectangle {
     id: topRectangle
     height: parent.height
     width: 80
-    color: Constants.colorBlack
+    color: GlobalValues.colorBlack
 
     enum ESelected { HOME, BATTERY, SETTINGS, ABOUT }
     property int selected: MenuBar.ESelected.HOME
-    property bool isLock: false
 
     Column {
         id: column
         anchors.horizontalCenter: parent.horizontalCenter
         width: 79
         spacing: 0
+        enabled: GlobalValues.enable
 
         MenuBarButton {
             id: homeButton
@@ -29,7 +29,7 @@ Rectangle {
             width: parent.width - 10
             height: 2
             anchors.horizontalCenter: parent.horizontalCenter
-            color: Constants.colorWhite
+            color: GlobalValues.colorWhite
             radius: 100
         }
 
@@ -46,7 +46,7 @@ Rectangle {
             width: parent.width - 10
             height: 2
             anchors.horizontalCenter: parent.horizontalCenter
-            color: Constants.colorWhite
+            color: GlobalValues.colorWhite
             radius: 100
         }
 
@@ -63,7 +63,7 @@ Rectangle {
             width: parent.width - 10
             height: 2
             anchors.horizontalCenter: parent.horizontalCenter
-            color: Constants.colorWhite
+            color: GlobalValues.colorWhite
             radius: 100
         }
 
@@ -82,11 +82,10 @@ Rectangle {
         z: 10
         anchors.left: parent.left
         anchors.bottom: parent.bottom
-        iconSource: topRectangle.isLock === true ? "qrc:/Images/lock.svg" : "qrc:/Images/unlock.svg"
+        iconSource: GlobalValues.enable === false ? "qrc:/Images/lock.svg" : "qrc:/Images/unlock.svg"
         buttonEnabledIn: false
         onClick: {
-            topRectangle.isLock = topRectangle.isLock === false ? true : false
-            column.enabled = column.enabled === false ? true : false
+            GlobalValues.enable = GlobalValues.enable === false ? true : false
         }
     }
 }

@@ -16,7 +16,7 @@ Item {
         id: button
         anchors.fill: parent
         onClicked: topElementButton.click()
-        Material.background: topElementButton.buttonEnabledIn ? Constants.colorMenuButtonGray : Constants.colorBlack
+        Material.background: topElementButton.buttonEnabledIn ? GlobalValues.colorMenuButtonGray : GlobalValues.colorBlack
 
         Image {
             id: image
@@ -31,7 +31,7 @@ Item {
 
         ColorOverlay {
             id: colorOverlay
-            color: Constants.colorWhite
+            color: GlobalValues.colorWhite
             anchors.fill: image
             source: image
         }

@@ -3,9 +3,10 @@ import QtQuick.Controls 2.3
 
 ApplicationWindow {
     id: mainWindow
+    visibility: ApplicationWindow.FullScreen
     visible: true
-    width: Constants.width
-    height: Constants.height
+    width: GlobalValues.width
+    height: GlobalValues.height
     title: qsTr("Dashboard")
 
     Image {

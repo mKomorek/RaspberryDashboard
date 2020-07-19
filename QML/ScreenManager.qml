@@ -5,7 +5,7 @@ Rectangle {
     id: topRectangle
     width: parent.width
     height: parent.height
-    color: Constants.colorBackground
+    color: GlobalValues.colorBackground
 
 
     MenuBar {
@@ -21,6 +21,7 @@ Rectangle {
         anchors.right: parent.right
         anchors.left: menuBar.right
         visible: false
+        enabled: GlobalValues.enable
     }
 
     BatteryScreen {
@@ -30,6 +31,7 @@ Rectangle {
         anchors.right: parent.right
         anchors.left: menuBar.right
         visible: false
+        enabled: GlobalValues.enable
     }
 
     SettingsScreen {
@@ -39,6 +41,7 @@ Rectangle {
         anchors.right: parent.right
         anchors.left: menuBar.right
         visible: false
+        enabled: GlobalValues.enable
     }
 
     AboutAppScreen {
@@ -48,6 +51,7 @@ Rectangle {
         anchors.right: parent.right
         anchors.left: menuBar.right
         visible: false
+        enabled: GlobalValues.enable
     }
 
     states: [

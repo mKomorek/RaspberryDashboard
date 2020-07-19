@@ -6,20 +6,12 @@ import View 1.0
 
 Item {
     id: topItem
-    property int typeOfRideMode: 2
-    property color typeOfRideModeColor: {
-        if(topItem.typeOfRideMode === 0)
-            return Constants.colorEco
-        if(topItem.typeOfRideMode === 1)
-            return Constants.colorNormal
-        if(topItem.typeOfRideMode === 2)
-            return Constants.colorDynamic
-    }
+    onActiveFocusChanged: hmiClock.update()
 
     Rectangle {
         id: backgroundRectangle
         anchors.fill: parent
-        color: Constants.colorBackground
+        color: GlobalValues.colorBackground
 
         RadialBar {
             id: hmiClock
@@ -28,15 +20,15 @@ Item {
             anchors.leftMargin: parent.width * 0.05
             width: parent.width * 0.5
             height: width
-            dialType: RadialBar.MinToMax
-            progressColor: topItem.typeOfRideModeColor
+            dialType: GlobalValues.hmi_typeOfClock
+            progressColor: GlobalValues.hmi_typeOfRideModeColor
             onProgressColorChanged: update()
             foregroundColor: "#1a1a1b"
-            dialWidth: 30
-            startAngle: 40
-            spanAngle: 280
+            dialWidth: GlobalValues.hmi_progressBarWidth
+            startAngle: GlobalValues.hmi_startAngle
+            spanAngle: GlobalValues.hmi_spanAngle
             minValue: 0
-            maxValue: 220
+            maxValue: GlobalValues.hmi_maxValueProgressBar
             value: 77 //ConnectService.HMI_data.A0
             textFont {
                 family: "Consolas"
@@ -44,7 +36,7 @@ Item {
                 pointSize: 38
             }
             suffixText: "km/h"
-            textColor: topItem.typeOfRideModeColor
+            textColor: GlobalValues.hmi_typeOfRideModeColor
         }
 
         Column {
@@ -58,20 +50,20 @@ Item {
                 id: typeOfRide
                 width: parent.width
                 height: parent.height * 0.24
-                color: Constants.colorTransparent
+                color: GlobalValues.colorTransparent
 
                 BigText {
                     id: typeOfRideText
                     anchors.horizontalCenter: parent.horizontalCenter
                     anchors.bottom: parent.bottom
                     anchors.bottomMargin: 15
-                    color: Constants.colorHomeScreenDetails
+                    color: GlobalValues.colorHomeScreenDetails
                     text: {
-                        if(topItem.typeOfRideMode === 0)
+                        if(GlobalValues.hmi_typeOfRideMode === 0)
                             return "ECO"
-                        if(topItem.typeOfRideMode === 1)
+                        if(GlobalValues.hmi_typeOfRideMode === 1)
                             return "NORMAL"
-                        if(topItem.typeOfRideMode === 2)
+                        if(GlobalValues.hmi_typeOfRideMode === 2)
                             return "DYNAMIC"
                     }
                 }
@@ -87,15 +79,13 @@ Item {
                 }
             }
 
-            ColumnElementSeparator {
-                rectangleColor: topItem.typeOfRideModeColor
-            }
+            ColumnElementSeparator { }
 
             Rectangle {
                 id: baterryCharge
                 width: parent.width
                 height: parent.height * 0.24
-                color: Constants.colorTransparent
+                color: GlobalValues.colorTransparent
 
                 Row {
                     anchors.centerIn: parent
@@ -108,8 +98,8 @@ Item {
                         text: qsTr("60") + "%"
                         color: {
 //                            if(ConnectService.HMI_data.A1 <= 15)
-//                                return Constants.colorRed
-                            return Constants.colorHomeScreenDetails
+//                                return GlobalValues.colorRed
+                            return GlobalValues.colorHomeScreenDetails
                         }
                     }
 
@@ -126,8 +116,8 @@ Item {
                             id: baterryChargingOverlay
                             color: {
 //                                if(ConnectService.HMI_data.A1 <= 15)
-//                                    return Constants.colorRed
-                                Constants.colorHomeScreenDetails
+//                                    return GlobalValues.colorRed
+                                GlobalValues.colorHomeScreenDetails
                             }
                             anchors.fill: baterryCharging
                             source: baterryCharging
@@ -136,15 +126,13 @@ Item {
                 }
             }
 
-            ColumnElementSeparator {
-                rectangleColor: topItem.typeOfRideModeColor
-            }
+            ColumnElementSeparator { }
 
             Rectangle {
                 id: batteryTemp
                 width: parent.width
                 height: parent.height * 0.24
-                color: Constants.colorTransparent
+                color: GlobalValues.colorTransparent
 
                 Row {
                     anchors.centerIn: parent
@@ -157,8 +145,8 @@ Item {
                         text: qsTr("40") + "°C"
                         color: {
 //                            if(ConnectService.HMI_data.A2>=60)
-//                                return Constants.colorRed
-                            return Constants.colorHomeScreenDetails
+//                                return GlobalValues.colorRed
+                            return GlobalValues.colorHomeScreenDetails
                         }
                     }
 
@@ -175,8 +163,8 @@ Item {
                             id: baterryTempImgOverlay
                             color: {
 //                                if(ConnectService.HMI_data.A2>=60)
-//                                    return Constants.colorRed
-                                return Constants.colorHomeScreenDetails
+//                                    return GlobalValues.colorRed
+                                return GlobalValues.colorHomeScreenDetails
                             }
                             anchors.fill: baterryTempImg
                             source: baterryTempImg
@@ -185,15 +173,13 @@ Item {
                 }
             }
 
-            ColumnElementSeparator {
-                rectangleColor: topItem.typeOfRideModeColor
-            }
+            ColumnElementSeparator { }
 
             Rectangle {
                 id: info
                 width: parent.width
                 height: parent.height * 0.24
-                color: Constants.colorTransparent
+                color: GlobalValues.colorTransparent
 
                 Row {
                     anchors.centerIn: parent
@@ -203,7 +189,7 @@ Item {
                         id: warningRectangle
                         width: 60
                         height: 60
-                        color: Constants.colorTransparent
+                        color: GlobalValues.colorTransparent
 
                         Image {
                             id: warningImage
@@ -219,7 +205,7 @@ Item {
                                 id: warningImageOverlay
                                 anchors.fill: warningImage
                                 source: warningImage
-                                color: Constants.colorDisable //ConnectService.HMI_data.D6 === 1 ? Constants.colorRed : Constants.colorDisable
+                                color: GlobalValues.colorHomeScreenDetails //ConnectService.HMI_data.D6 === 1 ? GlobalValues.colorRed : GlobalValues.colorDisable
                             }
                         }
 
@@ -238,7 +224,7 @@ Item {
                         id: batteryProblem
                         width: 60
                         height: 60
-                        color: Constants.colorTransparent
+                        color: GlobalValues.colorTransparent
 
                         Image {
                             id: batteryProblemImage
@@ -254,7 +240,7 @@ Item {
                                 id: batteryProblemOverlay
                                 anchors.fill: batteryProblemImage
                                 source: batteryProblemImage
-                                color: Constants.colorDisable //ConnectService.HMI_data.D5 === 1 ? Constants.colorRed : Constants.colorDisable
+                                color: GlobalValues.colorHomeScreenDetails //ConnectService.HMI_data.D5 === 1 ? GlobalValues.colorRed : GlobalValues.colorDisable
                             }
                         }
 
