@@ -17,11 +17,6 @@ Rectangle {
             width: scrollView.width
             spacing: 20
 
-//            Item {
-//                width: parent.width
-//                height: 10
-//            }
-
             HeadingText {
                 id: recordsText
                 width: parent.width
@@ -41,7 +36,7 @@ Rectangle {
                     anchors.horizontalCenter: parent.horizontalCenter
                     width: parent.width
                     height: parent.height
-                    radius: 5
+                    radius: GlobalValues.whiteBacgroundRectangleRadius
 
                     Grid {
                         rows: 2
@@ -66,14 +61,6 @@ Rectangle {
                         }
 
                         RecordCard {
-                            id: timeW8Charging
-                            imageSource: "qrc:/Images/battery.svg"
-                            cardColor: GlobalValues.colorTimeW8Charging
-                            recordText: qsTr("TIME W8 CHARGING")
-                            recordValue: qsTr("99 h")
-                        }
-
-                        RecordCard {
                             id: anyIdea
                             imageSource: "qrc:/Images/unlock.svg"
                             cardColor: "#cddc39"
@@ -81,6 +68,13 @@ Rectangle {
                             recordValue: qsTr("0.0")
                         }
 
+                        RecordCard {
+                            id: anyIdea2
+                            imageSource: "qrc:/Images/unlock.svg"
+                            cardColor: "#cddc39"
+                            recordText: qsTr("ANY IDEA?")
+                            recordValue: qsTr("0.0")
+                        }
                     }
                 }
 
@@ -114,7 +108,7 @@ Rectangle {
                     anchors.horizontalCenter: parent.horizontalCenter
                     width: parent.width
                     height: 200
-                    radius: 5
+                    radius: GlobalValues.whiteBacgroundRectangleRadius
 
                     Column{
                         anchors.fill: parent
@@ -184,7 +178,7 @@ Rectangle {
                     anchors.horizontalCenter: parent.horizontalCenter
                     width: parent.width
                     height: 360
-                    radius: 5
+                    radius: GlobalValues.whiteBacgroundRectangleRadius
 
                     Text {
                         text: qsTr("paste the license of qt, icons and other libs")

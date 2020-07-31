@@ -14,7 +14,10 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+        Models/device.cpp \
+        Models/sensorsdata.cpp \
         QMLtypes/radialbar.cpp \
+        Services/deviceservice.cpp \
         main.cpp \
         raspberrydashboard.cpp
 
@@ -32,5 +35,8 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
+    Models/device.h \
+    Models/sensorsdata.h \
     QMLtypes/radialbar.h \
+    Services/deviceservice.h \
     raspberrydashboard.h

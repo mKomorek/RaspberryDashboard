@@ -3,7 +3,7 @@ import QtQuick.Controls 2.3
 
 ApplicationWindow {
     id: mainWindow
-    visibility: ApplicationWindow.FullScreen
+    //visibility: ApplicationWindow.FullScreen
     visible: true
     width: GlobalValues.width
     height: GlobalValues.height

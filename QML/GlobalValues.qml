@@ -5,6 +5,7 @@ import View 1.0
 QtObject {
     readonly property int width: 1024
     readonly property int height: 600
+    readonly property int whiteBacgroundRectangleRadius: 5
     property bool enable: true
 
     // colors:
@@ -12,9 +13,11 @@ QtObject {
     readonly property color colorBackground: "#D3D3D3"
     readonly property color colorBlack: "#000000"
     readonly property color colorWhite: "#ffffff"
+    readonly property color colorRed: "#ff3232"
     readonly property color colorTextGray: "#505050"
     readonly property color colorMenuButtonGray: "#808080"
     readonly property color colorHomeScreenDetails: "#000000"
+    readonly property color colorButtonBlue: "#42a5f5"
 
     // ride type colors:
     readonly property color colorEco: "#43a047"
@@ -27,7 +30,7 @@ QtObject {
     readonly property color colorTimeW8Charging: "#42a5f5"
 
     // hmi parameters
-    property int hmi_typeOfRideMode: 2
+    property int hmi_typeOfRideMode: DeviceService.device.sensorsData.D7
     property color hmi_typeOfRideModeColor: {
         if(hmi_typeOfRideMode === 0)
             return GlobalValues.colorEco

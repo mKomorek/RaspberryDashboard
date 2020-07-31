@@ -2,7 +2,7 @@ import QtQuick 2.0
 import QtGraphicalEffects 1.0
 
 Item {
-    id: topRectangle
+    id: topItem
     anchors.fill: parent
 
     HeadingText {
@@ -16,7 +16,7 @@ Item {
         anchors.verticalCenter: parent.verticalCenter
         width: parent.width * 0.95
         height: parent.height * 0.8
-        radius: 5
+        radius: GlobalValues.whiteBacgroundRectangleRadius
     }
 
     DropShadow {

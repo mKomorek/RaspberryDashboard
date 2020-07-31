@@ -29,7 +29,7 @@ Item {
             spanAngle: GlobalValues.hmi_spanAngle
             minValue: 0
             maxValue: GlobalValues.hmi_maxValueProgressBar
-            value: 77 //ConnectService.HMI_data.A0
+            value: DeviceService.device.sensorsData.A0
             textFont {
                 family: "Consolas"
                 italic: false
@@ -95,10 +95,10 @@ Item {
                         id: baterryChargeText
                         anchors.verticalCenter: parent.verticalCenter
                         font.letterSpacing: 1
-                        text: qsTr("60") + "%"
+                        text: DeviceService.device.sensorsData.A1 + "%"
                         color: {
-//                            if(ConnectService.HMI_data.A1 <= 15)
-//                                return GlobalValues.colorRed
+                            if(DeviceService.device.sensorsData.A1 <= 25)
+                                return GlobalValues.colorRed
                             return GlobalValues.colorHomeScreenDetails
                         }
                     }
@@ -115,8 +115,8 @@ Item {
                         ColorOverlay {
                             id: baterryChargingOverlay
                             color: {
-//                                if(ConnectService.HMI_data.A1 <= 15)
-//                                    return GlobalValues.colorRed
+                                if(DeviceService.device.sensorsData.A1 <= 25)
+                                    return GlobalValues.colorRed
                                 GlobalValues.colorHomeScreenDetails
                             }
                             anchors.fill: baterryCharging
@@ -142,10 +142,10 @@ Item {
                         id: baterryTempText
                         anchors.verticalCenter: parent.verticalCenter
                         font.letterSpacing: 1
-                        text: qsTr("40") + "°C"
+                        text: DeviceService.device.sensorsData.A2 + "°C"
                         color: {
-//                            if(ConnectService.HMI_data.A2>=60)
-//                                return GlobalValues.colorRed
+                            if(DeviceService.device.sensorsData.A2 >= 60)
+                                return GlobalValues.colorRed
                             return GlobalValues.colorHomeScreenDetails
                         }
                     }
@@ -162,8 +162,8 @@ Item {
                         ColorOverlay {
                             id: baterryTempImgOverlay
                             color: {
-//                                if(ConnectService.HMI_data.A2>=60)
-//                                    return GlobalValues.colorRed
+                                if(DeviceService.device.sensorsData.A2 >= 60)
+                                    return GlobalValues.colorRed
                                 return GlobalValues.colorHomeScreenDetails
                             }
                             anchors.fill: baterryTempImg
@@ -205,7 +205,7 @@ Item {
                                 id: warningImageOverlay
                                 anchors.fill: warningImage
                                 source: warningImage
-                                color: GlobalValues.colorHomeScreenDetails //ConnectService.HMI_data.D6 === 1 ? GlobalValues.colorRed : GlobalValues.colorDisable
+                                color: DeviceService.device.sensorsData.D6 === 1 ? GlobalValues.colorRed : GlobalValues.colorHomeScreenDetails
                             }
                         }
 
@@ -240,7 +240,7 @@ Item {
                                 id: batteryProblemOverlay
                                 anchors.fill: batteryProblemImage
                                 source: batteryProblemImage
-                                color: GlobalValues.colorHomeScreenDetails //ConnectService.HMI_data.D5 === 1 ? GlobalValues.colorRed : GlobalValues.colorDisable
+                                color: DeviceService.device.sensorsData.D5 === 1 ? GlobalValues.colorRed : GlobalValues.colorHomeScreenDetails
                             }
                         }
 

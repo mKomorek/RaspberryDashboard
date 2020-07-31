@@ -11,19 +11,17 @@ Item {
 
         Item {
             id: firstPage
-            UISettings {
-                id: uiSettings
+            ConnectionSettings {
+                id: connectionSettings
                 anchors.fill: parent
             }
         }
 
         Item {
             id: secondPage
-            Rectangle {
-                width: 250
-                height: 250
-                color: "red"
-                anchors.horizontalCenter: parent.horizontalCenter
+            UISettings {
+                id: uiSettings
+                anchors.fill: parent
             }
         }
     }
