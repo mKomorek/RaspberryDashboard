@@ -3,6 +3,7 @@ import QtQuick.Controls 2.14
 
 Item {
     id: topItem
+    onVisibleChanged: view.currentIndex = 0
 
     SwipeView {
         id: view

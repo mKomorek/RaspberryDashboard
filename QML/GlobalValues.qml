@@ -8,6 +8,7 @@ QtObject {
     readonly property int whiteBacgroundRectangleRadius: 5
     property bool enable: true
 
+
     // colors:
     readonly property color colorTransparent: "#00000000"
     readonly property color colorBackground: "#D3D3D3"
@@ -17,17 +18,19 @@ QtObject {
     readonly property color colorTextGray: "#505050"
     readonly property color colorMenuButtonGray: "#808080"
     readonly property color colorHomeScreenDetails: "#000000"
-    readonly property color colorButtonBlue: "#42a5f5"
+    readonly property color colorButton: "#9575cd"
 
-    // ride type colors:
-    readonly property color colorEco: "#43a047"
-    readonly property color colorNormal: "#fafafa"
-    readonly property color colorDynamic: "#c61e5d"
 
     // record colors:
     readonly property color colorHighestSpeed: "#d50000"
     readonly property color colorBetteryTemperature: "#ec407a"
     readonly property color colorTimeW8Charging: "#42a5f5"
+
+
+    // ride type colors:
+    property color colorEco: "#43a047"
+    property color colorNormal: "#fafafa"
+    property color colorDynamic: "#c61e5d"
 
     // hmi parameters
     property int hmi_typeOfRideMode: DeviceService.device.sensorsData.D7

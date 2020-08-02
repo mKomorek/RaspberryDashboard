@@ -39,7 +39,7 @@ Item {
                 anchors.leftMargin: 30
                 flat: true
                 highlighted: true
-                Material.background: GlobalValues.colorButtonBlue
+                Material.background: GlobalValues.colorButton
                 Material.accent: GlobalValues.colorBlack
                 font.pixelSize: 18
                 text: "SEARCH"
@@ -80,7 +80,7 @@ Item {
                 anchors.leftMargin: 30
                 flat: true
                 highlighted: true
-                Material.background: GlobalValues.colorDynamic
+                Material.background: GlobalValues.colorRed
                 Material.accent: GlobalValues.colorBlack
                 font.pixelSize: 18
                 text: "DISCONNECT"
@@ -119,7 +119,7 @@ Item {
             font.letterSpacing: 3
             font.pixelSize: 42
             font.weight: Font.Black
-            color: DeviceService.device.isConnected === true ? GlobalValues.colorEco : GlobalValues.colorDynamic
+            color: DeviceService.device.isConnected === true ? GlobalValues.colorEco : GlobalValues.colorRed
             text: DeviceService.device.isConnected === true ? "CONNECTED" : "DOSCONNECTED"
         }
 
@@ -175,9 +175,13 @@ Item {
         anchors.bottom: clearLogsButton.top
         anchors.left: parent.horizontalCenter
         anchors.right: parent.right
-        anchors.margins: 50
+        anchors.topMargin: 50
+        anchors.leftMargin: 50
+        anchors.rightMargin: 50
+        anchors.bottomMargin: 10
         ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
         ScrollBar.vertical.policy: ScrollBar.AlwaysOff
+        clip: true
 
         ListView {
             id: logListView
@@ -220,7 +224,7 @@ Item {
         anchors.margins: 50
         flat: true
         highlighted: true
-        Material.background: GlobalValues.colorDynamic
+        Material.background: GlobalValues.colorButton
         Material.accent: GlobalValues.colorBlack
         font.pixelSize: 18
         text: "CLEAR LOGS"

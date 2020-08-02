@@ -6,7 +6,7 @@ import View 1.0
 
 Item {
     id: topItem
-    onActiveFocusChanged: hmiClock.update()
+    onVisibleChanged: hmiClock.update()
 
     Rectangle {
         id: backgroundRectangle
