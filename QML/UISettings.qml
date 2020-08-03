@@ -106,7 +106,7 @@ Item {
                 width: scrol.width
                 anchors.top: parent.top
                 anchors.topMargin: 15
-                spacing: 10
+                spacing: 12
 
                 Text {
                     id: typeOfClockText
@@ -214,6 +214,8 @@ Item {
                             GlobalValues.colorEco = "#e84c3d"
                         if (currentIndex == 6)
                             GlobalValues.colorEco = "#fafafa"
+                        hmiClock.progressColor = GlobalValues.colorEco
+                        hmiClock.textColor = GlobalValues.colorEco
                         hmiClock.update()
                     }
                 }
@@ -249,6 +251,8 @@ Item {
                             GlobalValues.colorNormal = "#e84c3d"
                         if (currentIndex == 6)
                             GlobalValues.colorNormal = "#fafafa"
+                        hmiClock.progressColor = GlobalValues.colorNormal
+                        hmiClock.textColor = GlobalValues.colorNormal
                         hmiClock.update()
                     }
                 }
@@ -284,6 +288,8 @@ Item {
                             GlobalValues.colorDynamic = "#e84c3d"
                         if (currentIndex == 6)
                             GlobalValues.colorDynamic = "#fafafa"
+                        hmiClock.progressColor = GlobalValues.colorDynamic
+                        hmiClock.textColor = GlobalValues.colorDynamic
                         hmiClock.update()
                     }
                 }
@@ -294,21 +300,12 @@ Item {
                     width: parent.width - 40
                     height: 50
                     Material.background: GlobalValues.colorButton
-
                     Material.accent: GlobalValues.colorBlack
                     flat: true
                     highlighted: true
                     font.pixelSize: 18
                     text: "SET DEFAULT"
-                    onClicked: {
-                        topItem.setClockType(0)
-                        GlobalValues.hmi_maxValueProgressBar = 200
-                        GlobalValues.hmi_progressBarWidth = 30
-                        GlobalValues.colorEco = "#43a047"
-                        GlobalValues.colorNormal = "#fafafa"
-                        GlobalValues.colorDynamic = "#c61e5d"
-                        hmiClock.update()
-                    }
+                    onClicked: restoreDefaultSettings.visible = true
                 }
 
                 Rectangle {
@@ -327,5 +324,22 @@ Item {
         samples: 10
         color: "#40000000"
         source: whiteBackgoundRectangleColumn
+    }
+
+    YesNoDialog {
+        id: restoreDefaultSettings
+        visible: false
+        dialogText: qsTr("THE DEFAULT SETTINGS WILL BE RESTORED!")
+        onOkClicked: {
+            topItem.setClockType(0)
+            GlobalValues.hmi_maxValueProgressBar = 200
+            GlobalValues.hmi_progressBarWidth = 30
+            GlobalValues.colorEco = "#43a047"
+            GlobalValues.colorNormal = "#fafafa"
+            GlobalValues.colorDynamic = "#c61e5d"
+            hmiClock.update()
+            visible = false
+        }
+        onCancelClicked: visible = false
     }
 }

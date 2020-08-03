@@ -64,7 +64,7 @@ Item {
                 anchors.rightMargin: 30
                 anchors.leftMargin: 30
                 flat: true
-                Material.background: GlobalValues.colorEco
+                Material.background: GlobalValues.colorGreen
                 Material.accent: GlobalValues.colorBlack
                 font.pixelSize: 18
                 text: "CONNECT"
@@ -119,7 +119,7 @@ Item {
             font.letterSpacing: 3
             font.pixelSize: 42
             font.weight: Font.Black
-            color: DeviceService.device.isConnected === true ? GlobalValues.colorEco : GlobalValues.colorRed
+            color: DeviceService.device.isConnected === true ? GlobalValues.colorGreen : GlobalValues.colorRed
             text: DeviceService.device.isConnected === true ? "CONNECTED" : "DOSCONNECTED"
         }
 
@@ -228,6 +228,17 @@ Item {
         Material.accent: GlobalValues.colorBlack
         font.pixelSize: 18
         text: "CLEAR LOGS"
-        onClicked: DeviceService.clearLogs()
+        onClicked: clearLogsDialog.visible = true
+    }
+
+    YesNoDialog {
+        id: clearLogsDialog
+        visible: false
+        dialogText: qsTr("LOGS WILL BE DELETED!")
+        onOkClicked: {
+            DeviceService.clearLogs()
+            visible = false
+        }
+        onCancelClicked: visible = false
     }
 }

@@ -26,5 +26,6 @@
         <file>Images/speed.svg</file>
         <file>QML/RecordCard.qml</file>
         <file>QML/ConnectionSettings.qml</file>
+        <file>QML/YesNoDialog.qml</file>
     </qresource>
 </RCC>
