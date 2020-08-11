@@ -6,7 +6,7 @@
 #include "QMLtypes/radialbar.h"
 #include "Services/deviceservice.h"
 
-RaspberryDashboard::RaspberryDashboard(int &argc, char **argv) : QGuiApplication(argc, argv)
+RaspberryDashboard::RaspberryDashboard(int &argc, char **argv) : QApplication(argc, argv)
 {
     QQuickStyle::setStyle("Material");
     QQuickWindow::setTextRenderType(QQuickWindow::TextRenderType::QtTextRendering);
@@ -20,9 +20,4 @@ RaspberryDashboard::RaspberryDashboard(int &argc, char **argv) : QGuiApplication
                          &DeviceService::instance());
 
     m_engine.load(QUrl(QStringLiteral("qrc:/QML/main.qml")));
-}
-
-RaspberryDashboard::~RaspberryDashboard()
-{
-
 }

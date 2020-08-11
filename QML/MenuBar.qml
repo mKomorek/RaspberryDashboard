@@ -6,7 +6,7 @@ Rectangle {
     width: 80
     color: GlobalValues.colorBlack
 
-    enum ESelected { HOME, BATTERY, SETTINGS, ABOUT }
+    enum ESelected { HOME, BATTERY, CHARTS, SETTINGS, ABOUT }
     property int selected: MenuBar.ESelected.HOME
 
     Column {
@@ -40,6 +40,23 @@ Rectangle {
             iconSource: "qrc:/Images/battery.svg"
             buttonEnabledIn: topRectangle.selected === MenuBar.ESelected.BATTERY
             onClick: topRectangle.selected = MenuBar.ESelected.BATTERY
+        }
+
+        Rectangle {
+            width: parent.width - 10
+            height: 2
+            anchors.horizontalCenter: parent.horizontalCenter
+            color: GlobalValues.colorWhite
+            radius: 100
+        }
+
+        MenuBarButton {
+            id: chartsBar
+            anchors.left: parent.left
+            anchors.right: parent.right
+            iconSource: "qrc:/Images/charts.svg"
+            buttonEnabledIn: topRectangle.selected === MenuBar.ESelected.CHARTS
+            onClick: topRectangle.selected = MenuBar.ESelected.CHARTS
         }
 
         Rectangle {

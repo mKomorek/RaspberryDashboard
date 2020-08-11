@@ -27,5 +27,8 @@
         <file>QML/RecordCard.qml</file>
         <file>QML/ConnectionSettings.qml</file>
         <file>QML/YesNoDialog.qml</file>
+        <file>Images/charts.svg</file>
+        <file>QML/ChartsScreen.qml</file>
+        <file>QML/Chart.qml</file>
     </qresource>
 </RCC>

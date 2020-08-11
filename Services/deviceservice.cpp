@@ -29,7 +29,7 @@ QStringList DeviceService::portDescriptions() const
 
 QStringList DeviceService::logInfo() const
 {
-    return m_logInfo;
+    return  m_logInfo;
 }
 
 void DeviceService::searchDevices()

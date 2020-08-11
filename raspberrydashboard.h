@@ -1,15 +1,15 @@
 #ifndef RASPBERRYDASHBOARD_H
 #define RASPBERRYDASHBOARD_H
 
-#include <QGuiApplication>
+#include <QApplication>
 #include <QQmlApplicationEngine>
 
-class RaspberryDashboard : public QGuiApplication
+class RaspberryDashboard : public QApplication
 {
     Q_OBJECT
 public:
     RaspberryDashboard(int &argc, char **argv);
-    ~RaspberryDashboard();
+    virtual ~RaspberryDashboard() = default;
 
 private:
     QQmlApplicationEngine m_engine;

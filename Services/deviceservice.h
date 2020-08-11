@@ -35,7 +35,7 @@ signals:
 
 private:
     DeviceService(QObject *parent = nullptr);
-    ~DeviceService();
+    virtual ~DeviceService();
     void addToLogs(const QString& message);
     void setSerialPortProperies(std::shared_ptr<QSerialPort> port);
 

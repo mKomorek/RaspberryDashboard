@@ -15,7 +15,7 @@ class SensorsData : public QObject
 
 public:
     SensorsData(QObject *parent = nullptr);
-    ~SensorsData() = default;
+    virtual ~SensorsData() = default;
 
     qreal A0() const;
     qreal A1() const;

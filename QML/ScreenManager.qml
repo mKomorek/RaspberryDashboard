@@ -34,6 +34,16 @@ Rectangle {
         enabled: GlobalValues.enable
     }
 
+    ChartsScreen {
+        id: chartsScreen
+        anchors.top: parent.top
+        anchors.bottom: parent.bottom
+        anchors.right: parent.right
+        anchors.left: menuBar.right
+        visible: false
+        enabled: GlobalValues.enable
+    }
+
     SettingsScreen {
         id: settingsScreen
         anchors.top: parent.top
@@ -70,6 +80,14 @@ Rectangle {
                 visible: true
             }
             when: menuBar.selected === MenuBar.ESelected.BATTERY
+        },
+        State {
+            name: "Charts"
+            PropertyChanges {
+                target: chartsScreen
+                visible: true
+            }
+            when: menuBar.selected === MenuBar.ESelected.CHARTS
         },
         State {
             name: "Settings"

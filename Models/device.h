@@ -16,7 +16,7 @@ class Device : public QObject
 
 public:
     Device(QObject *parent = nullptr);
-    ~Device() = default;
+    virtual ~Device() = default;
 
     std::shared_ptr<QSerialPort> serialPort() const;
     QString portName() const;

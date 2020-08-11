@@ -12,17 +12,19 @@ Item {
 
         Item {
             id: firstPage
-            ConnectionSettings {
-                id: connectionSettings
+            Chart {
+                id: speedChart
                 anchors.fill: parent
+                headingText: qsTr("SPEED CHART")
             }
         }
 
         Item {
             id: secondPage
-            UISettings {
-                id: uiSettings
+            Chart {
+                id: batteryChargeChart
                 anchors.fill: parent
+                headingText:  qsTr("BATTERY CHARGE CHART")
             }
         }
     }
@@ -36,4 +38,3 @@ Item {
         anchors.horizontalCenter: parent.horizontalCenter
     }
 }
-
