@@ -52,7 +52,6 @@ Rectangle {
                             recordValue: AboutAppService.speedRecord.recordValue
                             recordUnit: "km/h"
                             recordDate: AboutAppService.speedRecord.recordDate
-                            onRecordDateChanged: console.log(AboutAppService.speedRecord.recordDate)
                         }
 
                         RecordCard {
