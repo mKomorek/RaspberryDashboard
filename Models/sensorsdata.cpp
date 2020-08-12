@@ -39,26 +39,43 @@ void SensorsData::setSensorsData(const QStringList &values)
 {
     if(values.size() == 6)
     {
-        m_A0 = static_cast<int>(values[0].toDouble());
-        m_A1 = static_cast<int>(values[1].toDouble());
-        m_A2 = static_cast<int>(values[2].toDouble());
-        emit A0Changed();
-        emit A1Changed();
-        emit A2Changed();
-        if(m_D7 != static_cast<int>(values[3].toDouble()))
-        {
-            m_D7 = static_cast<int>(values[3].toDouble());
-            emit D7Changed();
-        }
-        if(m_D6 != static_cast<int>(values[4].toDouble()))
-        {
-            m_D6 = static_cast<int>(values[4].toDouble());
-            emit D6Changed();
-        }
-        if(m_D5 != static_cast<int>(values[5].toDouble()))
-        {
-            m_D5 = static_cast<int>(values[5].toDouble());
-            emit D5Changed();
-        }
+        updateAnalogInputs(values);
+        updateDigitalSignals(values);
+        emitSignalForRecordUpdate();
     }
+}
+
+void SensorsData::updateAnalogInputs(const QStringList &values)
+{
+    m_A0 = static_cast<int>(values[0].toDouble());
+    m_A1 = static_cast<int>(values[1].toDouble());
+    m_A2 = static_cast<int>(values[2].toDouble());
+    emit A0Changed();
+    emit A1Changed();
+    emit A2Changed();
+}
+
+void SensorsData::updateDigitalSignals(const QStringList &values)
+{
+    if(m_D7 != static_cast<int>(values[3].toDouble()))
+    {
+        m_D7 = static_cast<int>(values[3].toDouble());
+        emit D7Changed();
+    }
+    if(m_D6 != static_cast<int>(values[4].toDouble()))
+    {
+        m_D6 = static_cast<int>(values[4].toDouble());
+        emit D6Changed();
+    }
+    if(m_D5 != static_cast<int>(values[5].toDouble()))
+    {
+        m_D5 = static_cast<int>(values[5].toDouble());
+        emit D5Changed();
+    }
+}
+
+void SensorsData::emitSignalForRecordUpdate()
+{
+    emit A0ChangedInt(m_A0);
+    emit A1ChangedInt(m_A1);
 }

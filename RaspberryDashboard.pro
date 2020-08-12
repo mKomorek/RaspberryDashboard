@@ -15,8 +15,10 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         Models/device.cpp \
+        Models/recordmodel.cpp \
         Models/sensorsdata.cpp \
         QMLtypes/radialbar.cpp \
+        Services/aboutappservice.cpp \
         Services/deviceservice.cpp \
         main.cpp \
         raspberrydashboard.cpp
@@ -36,7 +38,9 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 HEADERS += \
     Models/device.h \
+    Models/recordmodel.h \
     Models/sensorsdata.h \
     QMLtypes/radialbar.h \
+    Services/aboutappservice.h \
     Services/deviceservice.h \
     raspberrydashboard.h

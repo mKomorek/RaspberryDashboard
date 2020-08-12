@@ -48,16 +48,21 @@ Rectangle {
                             id: highestSpeedRecord
                             imageSource: "qrc:/Images/speed.svg"
                             cardColor: GlobalValues.colorHighestSpeed
-                            recordText: qsTr("HIGHEST SPEED")
-                            recordValue: qsTr("150 km/h")
+                            recordText: qsTr(AboutAppService.speedRecord.recordName)
+                            recordValue: AboutAppService.speedRecord.recordValue
+                            recordUnit: "km/h"
+                            recordDate: AboutAppService.speedRecord.recordDate
+                            onRecordDateChanged: console.log(AboutAppService.speedRecord.recordDate)
                         }
 
                         RecordCard {
                             id: highestBaterryTemperature
                             imageSource: "qrc:/Images/temperature.svg"
                             cardColor: GlobalValues.colorBetteryTemperature
-                            recordText: qsTr("HIGHEST BATTERY TEMP")
-                            recordValue: qsTr("88 °C")
+                            recordText: qsTr(AboutAppService.batteryTempRecord.recordName)
+                            recordValue: AboutAppService.batteryTempRecord.recordValue
+                            recordUnit: "°C"
+                            recordDate: AboutAppService.batteryTempRecord.recordDate
                         }
 
                         RecordCard {
@@ -65,7 +70,8 @@ Rectangle {
                             imageSource: "qrc:/Images/unlock.svg"
                             cardColor: "#cddc39"
                             recordText: qsTr("ANY IDEA?")
-                            recordValue: qsTr("0.0")
+                            recordValue: 0.0
+                            recordUnit: "NaN"
                         }
 
                         RecordCard {
@@ -73,7 +79,8 @@ Rectangle {
                             imageSource: "qrc:/Images/unlock.svg"
                             cardColor: "#cddc39"
                             recordText: qsTr("ANY IDEA?")
-                            recordValue: qsTr("0.0")
+                            recordValue: 0.0
+                            recordUnit: "NaN"
                         }
                     }
                 }
@@ -101,13 +108,13 @@ Rectangle {
                 id: contactItem
                 anchors.horizontalCenter: parent.horizontalCenter
                 width: parent.width * 0.95
-                height: 200
+                height: 300
 
                 Rectangle {
                     id: whiteBacgroundRectangleContact
                     anchors.horizontalCenter: parent.horizontalCenter
                     width: parent.width
-                    height: 200
+                    height: 300
                     radius: GlobalValues.whiteBacgroundRectangleRadius
 
                     Column{
@@ -116,7 +123,23 @@ Rectangle {
                         spacing: 15
 
                         Text {
-                            text: qsTr("LEM Wrocław")
+                            text: qsTr("LOGO LEM")
+                            anchors.horizontalCenter: parent.horizontalCenter
+                            font.letterSpacing: 2
+                            font.pixelSize: 24
+                            font.weight: Font.Black
+                        }
+
+                        Text {
+                            text: qsTr("LEM Wrocław facebook link")
+                            anchors.horizontalCenter: parent.horizontalCenter
+                            font.letterSpacing: 2
+                            font.pixelSize: 24
+                            font.weight: Font.Black
+                        }
+
+                        Text {
+                            text: qsTr("LEM Wrocław instagram")
                             anchors.horizontalCenter: parent.horizontalCenter
                             font.letterSpacing: 2
                             font.pixelSize: 24

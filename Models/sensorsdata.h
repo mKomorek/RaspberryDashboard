@@ -34,7 +34,14 @@ signals:
     void D6Changed();
     void D5Changed();
 
+    void A0ChangedInt(const int &value);
+    void A1ChangedInt(const int &value);
+
 private:
+    void updateAnalogInputs(const QStringList &values);
+    void updateDigitalSignals(const QStringList &values);
+    void emitSignalForRecordUpdate();
+
     qreal m_A0;
     qreal m_A1;
     qreal m_A2;

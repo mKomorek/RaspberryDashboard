@@ -32,6 +32,11 @@ QStringList DeviceService::logInfo() const
     return  m_logInfo;
 }
 
+std::shared_ptr<Device> DeviceService::getDevice() const
+{
+    return m_device;
+}
+
 void DeviceService::searchDevices()
 {
     addToLogs("Loking for the devices...");

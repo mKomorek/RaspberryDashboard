@@ -30,5 +30,6 @@
         <file>Images/charts.svg</file>
         <file>QML/ChartsScreen.qml</file>
         <file>QML/Chart.qml</file>
+        <file>Images/contactLEM.png</file>
     </qresource>
 </RCC>

@@ -5,6 +5,7 @@
 #include "raspberrydashboard.h"
 #include "QMLtypes/radialbar.h"
 #include "Services/deviceservice.h"
+#include "Services/aboutappservice.h"
 
 RaspberryDashboard::RaspberryDashboard(int &argc, char **argv) : QApplication(argc, argv)
 {
@@ -12,12 +13,24 @@ RaspberryDashboard::RaspberryDashboard(int &argc, char **argv) : QApplication(ar
     QQuickWindow::setTextRenderType(QQuickWindow::TextRenderType::QtTextRendering);
     //QGuiApplication::setOverrideCursor(QCursor(Qt::BlankCursor));
 
+    registerQMLTypes();
+    setContextProperties();
+    m_engine.load(QUrl(QStringLiteral("qrc:/QML/main.qml")));
+}
+
+void RaspberryDashboard::registerQMLTypes()
+{
     qmlRegisterSingletonType(QUrl(QStringLiteral("qrc:/QML/GlobalValues.qml")), "View", 1, 0, "GlobalValues");
     qmlRegisterType<RadialBar>("View", 1, 0, "RadialBar");
+}
 
+void RaspberryDashboard::setContextProperties()
+{
     m_engine.rootContext()->setContextProperty(
                          "DeviceService",
                          &DeviceService::instance());
 
-    m_engine.load(QUrl(QStringLiteral("qrc:/QML/main.qml")));
+    m_engine.rootContext()->setContextProperty(
+                         "AboutAppService",
+                         &AboutAppService::instance(DeviceService::instance().getDevice()->getSensorData()));
 }

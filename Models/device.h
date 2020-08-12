@@ -24,6 +24,8 @@ public:
     bool isConnected() const;
     QObject *sensorsData();
 
+    std::shared_ptr<SensorsData> getSensorData() const;
+
 private slots:
     void readDataFrames();
 

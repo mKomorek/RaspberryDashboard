@@ -7,7 +7,9 @@ Item {
     property string imageSource: "source"
     property color cardColor: GlobalValues.colorTransparent
     property string recordText: "text"
-    property string recordValue: "text"
+    property string recordUnit: "km/h"
+    property int recordValue: 0
+    property date recordDate: new Date()
 
     width: GlobalValues.width / 2.7
     height: GlobalValues.height / 4.6
@@ -64,7 +66,18 @@ Item {
                 font.pixelSize: 24
                 font.letterSpacing: 2
                 font.weight: Font.Bold
-                text: topItem.recordValue
+                text: topItem.recordValue + " " + topItem.recordUnit
+            }
+
+            Text {
+                id: recordTime
+                anchors.horizontalCenter: parent.horizontalCenter
+                anchors.top: recordValue.bottom
+                anchors.topMargin: 15
+                font.pixelSize: 14
+                font.letterSpacing: 2
+                font.weight: Font.Bold
+                text: topItem.recordDate.toLocaleDateString()
             }
         }
     }

@@ -12,6 +12,8 @@ public:
     virtual ~RaspberryDashboard() = default;
 
 private:
+    void registerQMLTypes();
+    void setContextProperties();
     QQmlApplicationEngine m_engine;
 };
 

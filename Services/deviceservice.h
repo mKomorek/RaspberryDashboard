@@ -22,6 +22,8 @@ public:
     QStringList portDescriptions() const;
     QStringList logInfo() const;
 
+    std::shared_ptr<Device> getDevice() const;
+
 public slots:
     void searchDevices();
     void connectDevice(const QString &portName);

@@ -39,13 +39,18 @@ QObject *Device::sensorsData()
     return ptr;
 }
 
+std::shared_ptr<SensorsData> Device::getSensorData() const
+{
+    return m_sensorsData;
+}
+
 void Device::readDataFrames()
 {
     while(m_serialPort->canReadLine())
     {
         QString line = m_serialPort->readLine();
         QStringList stringValues = line.split(',');
-        qDebug() << stringValues;
+        //qDebug() << stringValues;
         m_sensorsData->setSensorsData(stringValues);
     }
 }

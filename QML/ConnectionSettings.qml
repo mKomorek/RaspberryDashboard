@@ -176,8 +176,8 @@ Item {
         anchors.left: parent.horizontalCenter
         anchors.right: parent.right
         anchors.topMargin: 50
-        anchors.leftMargin: 50
-        anchors.rightMargin: 50
+        anchors.leftMargin: 20
+        anchors.rightMargin: 20
         anchors.bottomMargin: 10
         ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
         ScrollBar.vertical.policy: ScrollBar.AlwaysOff
@@ -221,7 +221,10 @@ Item {
         anchors.bottom: parent.bottom
         anchors.left: parent.horizontalCenter
         anchors.right: parent.right
-        anchors.margins: 50
+        anchors.topMargin: 50
+        anchors.bottomMargin: 50
+        anchors.leftMargin: 20
+        anchors.rightMargin: 20
         flat: true
         highlighted: true
         Material.background: GlobalValues.colorButton
