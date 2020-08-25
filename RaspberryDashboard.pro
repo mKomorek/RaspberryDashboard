@@ -1,4 +1,4 @@
-QT += charts quick qml quickcontrols2 serialport
+QT += charts quick qml quickcontrols2 serialport location
 
 CONFIG += c++17
 

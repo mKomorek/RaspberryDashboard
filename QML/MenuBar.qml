@@ -37,7 +37,7 @@ Rectangle {
             id: batteryButton
             anchors.left: parent.left
             anchors.right: parent.right
-            iconSource: "qrc:/Images/battery.svg"
+            iconSource: "qrc:/Images/maps.svg"
             buttonEnabledIn: topRectangle.selected === MenuBar.ESelected.BATTERY
             onClick: topRectangle.selected = MenuBar.ESelected.BATTERY
         }

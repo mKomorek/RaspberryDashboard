@@ -10,7 +10,7 @@
         <file>Images/home.svg</file>
         <file>Images/battery.svg</file>
         <file>QML/HomeScreen.qml</file>
-        <file>QML/BatteryScreen.qml</file>
+        <file>QML/MapScreen.qml</file>
         <file>QML/AboutAppScreen.qml</file>
         <file>QML/SettingsScreen.qml</file>
         <file>Images/unlock.svg</file>
@@ -31,5 +31,6 @@
         <file>QML/ChartsScreen.qml</file>
         <file>QML/Chart.qml</file>
         <file>Images/contactLEM.png</file>
+        <file>Images/maps.svg</file>
     </qresource>
 </RCC>
